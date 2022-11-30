@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -10,4 +12,16 @@ class AppColors {
   static final Color textWhite = Color(0xfff2f2f7);
   static final Color textBlue = Color(0xff003c6c);
   static final Color bg = Color(0xfff2f2f7);
+}
+
+Color getFacultyColor(String faculty) {
+  if (faculty == "fman") {
+    return AppColors.fman;
+  } else if (faculty == "fass") {
+    return AppColors.fass;
+  } else if (faculty == "fens") {
+    return AppColors.fens;
+  } else {
+    return AppColors.sabanci;
+  }
 }

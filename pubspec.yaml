@@ -35,6 +35,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   flutter_launcher_icons: ^0.11.0
   flutter_native_splash: ^2.2.15
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,13 @@ flutter:
     - assets/logos/normal5.png
     - assets/logos/normal20.png
     - assets/images/sabanci.png
+    - assets/icons/fass.png
+    - assets/icons/fens.png
+    - assets/icons/fman.png
+    - assets/icons/other.png
+    - assets/images/mustafayucel.jpg
+    - assets/images/mugeyegin.jpg
+    - assets/images/mgokbayrak.jpg
 
   fonts:
     - family: SF
@@ -80,19 +88,6 @@ flutter:
         - asset: assets/fonts/SF-Pro-Display-Black.otf
           weight: 800
         - asset: assets/fonts/SF-Pro-Display-Heavy.otf
-          weight: 900
-        # - asset: assets/fonts/SF-Pro-Display-Black.otf
-        # - asset: assets/fonts/SF-Pro-Display-BlackItalic.otf
-        # - asset: assets/fonts/SF-Pro-Display-Bold.otf
-        # - asset: assets/fonts/SF-Pro-Display-BoldItalic.otf
-        # - asset: assets/fonts/SF-Pro-Display-Heavy.otf
-        # - asset: assets/fonts/SF-Pro-Display-HeavyItalic.otf
-        # - asset: assets/fonts/SF-Pro-Display-Medium.otf
-        # - asset: assets/fonts/SF-Pro-Display-MediumItalic.otf
-        # - asset: assets/fonts/SF-Pro-Display-Regular.otf
-        # - asset: assets/fonts/SF-Pro-Display-RegularItalic.otf
-        # - asset: assets/fonts/SF-Pro-Display-Semibold.otf
-        # - asset: assets/fonts/SF-Pro-Display-SemiboldItalic.otf
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen

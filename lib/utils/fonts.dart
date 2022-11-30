@@ -12,7 +12,9 @@ const FontWeight BLACK = FontWeight.w800;
 const FontWeight HEAVY = FontWeight.w900;
 
 const double MAINHEADERSIZE = 40;
-const double WEAKHEADERSIZE = 20;
+const double WEAKHEADERSIZE = 17;
+const double FACULTYTILEHEADERSIZE = 20;
+const double FACULTYTILEDESCRIPTIONSIZE = 10;
 
 Text MainHeader(String txt, bool onWhiteBG) {
   return Text(
@@ -29,9 +31,26 @@ Text WeakHeader(String txt) {
   return Text(
     txt,
     style: TextStyle(
-      fontWeight: FontWeight.normal,
+      fontWeight: REGULAR,
       fontSize: WEAKHEADERSIZE,
       color: AppColors.systemGrey,
     ),
+  );
+}
+
+Text FacultyTileHeader(String txt) {
+  return Text(txt,
+      style: TextStyle(
+        fontWeight: BOLD,
+        fontSize: FACULTYTILEHEADERSIZE,
+        color: AppColors.textWhite,
+      ));
+}
+
+Text FacultyTileDescription(String txt) {
+  return Text(
+    txt,
+    textAlign: TextAlign.end,
+    style: TextStyle(fontSize: FACULTYTILEDESCRIPTIONSIZE, color: AppColors.textWhite),
   );
 }
