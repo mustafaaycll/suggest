@@ -30,7 +30,7 @@ codes.add(CONF);
 Code CS = Code(code: "CS", longName: "Computer Science & Engineering", faculty: "fens");
 codes.add(CS);
 
-Code CULT = Code(code: "CULT", longName: ">Cultural Studies", faculty: "fass");
+Code CULT = Code(code: "CULT", longName: "Cultural Studies", faculty: "fass");
 codes.add(CULT);
 
 Code DA = Code(code: "DA", longName: "Data Analytics", faculty: "fens");
@@ -42,11 +42,11 @@ codes.add(DS);
 Code ECON = Code(code: "ECON", longName: "Economics", faculty: "fass");
 codes.add(ECON);
 
-Code EE = Code(code: "EE", longName: "Electronics Engineering", faculty: "fens");
-codes.add(EE);
-
 Code EECS = Code(code: "EECS", longName: "Elect.Eng. & Computer Sci.", faculty: "fens");
 codes.add(EECS);
+
+Code EE = Code(code: "EE", longName: "Electronics Engineering", faculty: "fens");
+codes.add(EE);
 
 Code ENS = Code(code: "ENS", longName: "Engineering Sciences", faculty: "fens");
 codes.add(ENS);
@@ -102,11 +102,11 @@ codes.add(LIT);
 Code MART = Code(code: "MART", longName: "Action Research & Transformation Practices", faculty: "fman");
 codes.add(MART);
 
-Code MAT = Code(code: "MAT", longName: "Materials Science & Nano Engineering", faculty: "fens");
-codes.add(MAT);
-
 Code MATH = Code(code: "MATH", longName: "Mathematics", faculty: "fens");
 codes.add(MATH);
+
+Code MAT = Code(code: "MAT", longName: "Materials Science & Nano Engineering", faculty: "fens");
+codes.add(MAT);
 
 Code ME = Code(code: "ME", longName: "Mechatronics", faculty: "fens");
 codes.add(ME);
@@ -186,6 +186,6 @@ codes.add(VA);
 Code VIS = Code(code: "VIS", longName: "Visual Studies", faculty: "fass");
 codes.add(VIS);
 
-Code XM = Code(code: "XM", longName: "Project", faculty: "Exchange");
+Code XM = Code(code: "XM", longName: "Project Exchange", faculty: "fens");
 codes.add(XM);
 

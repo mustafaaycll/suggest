@@ -1,63 +1,63 @@
-AL-Academic Literacies-other
-ACC-Accounting-fman
-GR-Academic Practices & Development-fens
-AR-Action Research-fman
-MART-Action Research & Transformation Practices-fman
-ANTH-Anthropology-fass
-BP-Brand Practise-fman
-BAN-Business Analytics-fman
-CHEM-Chemistry-fens
-CS-Computer Science & Engineering-fens
-CONF-Conflict Analysis Resolution-fass
-CULT->Cultural Studies-fass
-DA-Data Analytics-fens
-DS-Data Science-fens
-ECON-Economics-fass
-EECS-Elect.Eng. & Computer Sci.-fens
-EE-Electronics Engineering-fens
-ETM-Energy Tech. and Manag.-fens
-ENS-Engineering Sciences-fens
-ES-European Studies-fass
-FILM-Film Studies-fass
-FIN-Finance-fman
-MFIN-Finance (Master)-fman
-GEN-Gender Studies-fass
-HART-History of Art-fass
-HIST-History-fass
-HUM-Humanities-fass
-IE-Industrial Engineering-fens
-IT-Information Technology-fens
-IF-Interfaculty Course-fens
-IR-International Relations-fass
-IS-International Studies-fass
-LAW-Law-fass
-LIT-Literature-fass
-MJC-Majors:Informative Cours-fass
-MGMT-Management-fman
-MRES-Managerial Research-fman
-MFE-Manufacturing-fens
-MFG-Manufacturing-fens
-MKTG-Marketing-fman
-MAT-Materials Science & Nano Engineering-fens
-MATH-Mathematics-fens
-ME-Mechatronics-fens
-BIO-Mol.Bio.Genetic & Bioengin.-fens
-NT-Nanotechnology-fens
-NS-Natural Sciences-fens
-OPIM-Opera. & Info. Syst. Man.-fman
-ORG-Organization-fman
-PHIL-Philosophy-fass
-PHYS-Physics-fens
-PSIR-Political Sci. & Inter. Relati.-fass
-POLS-Political Science-fass
-PROJ-Project Course-other
-XM-Project Exchange-fens
-PSY-Psychology-fass
-PUBL-Public Policy-fass
-SEC-Security-fens
-SPS-Social & Political Sci.-fass
-SOC-Sociology-fass
-TLL-Turkish Lang. & Literature-other
-TS-Turkish Studies-fass
-VIS-Visual Studies-fass
-VA-Vis. Arts & Vis. Comm. Des.-fass
+AL_Academic Literacies_other
+ACC_Accounting_fman
+GR_Academic Practices & Development_fens
+AR_Action Research_fman
+MART_Action Research & Transformation Practices_fman
+ANTH_Anthropology_fass
+BP_Brand Practise_fman
+BAN_Business Analytics_fman
+CHEM_Chemistry_fens
+CS_Computer Science & Engineering_fens
+CONF_Conflict Analysis Resolution_fass
+CULT_Cultural Studies_fass
+DA_Data Analytics_fens
+DS_Data Science_fens
+ECON_Economics_fass
+EECS_Elect.Eng. & Computer Sci._fens
+EE_Electronics Engineering_fens
+ETM_Energy Tech. and Manag._fens
+ENS_Engineering Sciences_fens
+ES_European Studies_fass
+FILM_Film Studies_fass
+FIN_Finance_fman
+MFIN_Finance (Master)_fman
+GEN_Gender Studies_fass
+HART_History of Art_fass
+HIST_History_fass
+HUM_Humanities_fass
+IE_Industrial Engineering_fens
+IT_Information Technology_fens
+IF_Interfaculty Course_fens
+IR_International Relations_fass
+IS_International Studies_fass
+LAW_Law_fass
+LIT_Literature_fass
+MJC_Majors:Informative Cours_fass
+MGMT_Management_fman
+MRES_Managerial Research_fman
+MFE_Manufacturing_fens
+MFG_Manufacturing_fens
+MKTG_Marketing_fman
+MAT_Materials Science & Nano Engineering_fens
+MATH_Mathematics_fens
+ME_Mechatronics_fens
+BIO_Mol.Bio.Genetic & Bioengin._fens
+NT_Nanotechnology_fens
+NS_Natural Sciences_fens
+OPIM_Opera. & Info. Syst. Man._fman
+ORG_Organization_fman
+PHIL_Philosophy_fass
+PHYS_Physics_fens
+PSIR_Political Sci. & Inter. Relati._fass
+POLS_Political Science_fass
+PROJ_Project Course_other
+XM_Project Exchange_fens
+PSY_Psychology_fass
+PUBL_Public Policy_fass
+SEC_Security_fens
+SPS_Social & Political Sci._fass
+SOC_Sociology_fass
+TLL_Turkish Lang. & Literature_other
+TS_Turkish Studies_fass
+VIS_Visual Studies_fass
+VA_Vis. Arts & Vis. Comm. Des._fass

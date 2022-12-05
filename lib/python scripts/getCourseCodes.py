@@ -8,7 +8,7 @@ output = open("courseCodesDart.txt", "w")
 dart = "List<Code> codes = <Code>[];\n\n"
 
 for i, line in enumerate(lines):
-    elems = line.strip().split('-')
+    elems = line.strip().split('_')
     code = elems[0]
     name = elems[1]
     faculty = elems[2]

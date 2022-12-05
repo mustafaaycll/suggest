@@ -15,7 +15,7 @@ lines.sort()
 codes = {}
 
 for i, line in enumerate(lines):
-    elems = line.strip().split('-')
+    elems = line.strip().split('_')
     codes[elems[0]] = elems[2]
 
 def findDriverPath():
@@ -39,7 +39,6 @@ options.add_experimental_option("detach", True)
 path = findDriverPath()
 browser = webdriver.Chrome(service=Service(resource_path(path)), desired_capabilities=caps, options=options)
 
-courses = dict()
 linestowrite = ""
 
 for code, faculty in codes.items():
@@ -59,9 +58,28 @@ for code, faculty in codes.items():
     for i, row in enumerate(table.find_elements(By.CSS_SELECTOR, "tr")):
         if i % 2 == 0:
             for col in row.find_elements(By.CSS_SELECTOR, "td"):
-                if col.text.split('-')[0].strip()[-1].isalpha() == False:
-                    print("*"+col.text.split('-')[0].strip()+ "-" + faculty+"*")
-                    linestowrite += col.text + "-" + faculty +'\n'
+                descriptionList = col.text.split('-')
+                fullcode = descriptionList[0].strip()
+                lastCharofCode = fullcode[-1]
+
+                if lastCharofCode.isalpha() == False:
+                    print("*" + fullcode + "-" + faculty + "*")
+
+                    for d in range(len(descriptionList)):
+                        descriptionList[d] = descriptionList[d].strip()
+
+
+                    course = ""
+                    if len(descriptionList) == 2:
+                        course = '_'.join(descriptionList)
+                    elif len(descriptionList) > 2:
+                        course = descriptionList[0] + '_'
+                        for n, r in enumerate(descriptionList[1:]):
+                            course += r
+                            if n + 1 != len(descriptionList[1:]):
+                                course += ' '
+
+                    linestowrite += course + "_" + faculty +'\n'
 
 
 output.writelines(linestowrite)

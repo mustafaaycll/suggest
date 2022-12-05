@@ -62,15 +62,7 @@ class CourseSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    List<Course> suggestions = courses.where((course) {
-      final code = course.code.toLowerCase();
-      final sbj = course.sbj.toLowerCase();
-      final input = query.toLowerCase();
-
-      final result = "$code $sbj";
-
-      return result.contains(input);
-    }).toList();
+    List<Course> suggestions = getQuery(courses, query);
 
     return Container(
       color: AppColors.bg,
@@ -78,57 +70,63 @@ class CourseSearchDelegate extends SearchDelegate {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: query.isNotEmpty ? suggestions.length : 0,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.all(15),
-            child: Column(
+          return ListTile(
+            onTap: () {},
+            leading: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: getFacultyColor(suggestions[index].faculty),
+              ),
+              height: 60,
+              width: 110,
+              child: Center(
+                child: Text(
+                  suggestions[index].code,
+                  style: TextStyle(
+                    color: AppColors.textWhite,
+                    fontSize: 20,
+                    fontWeight: BOLD,
+                  ),
+                ),
+              ),
+            ),
+            title: Text(
+              suggestions[index].sbj,
+              style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
+              maxLines: 2,
+            ),
+            subtitle: Row(
               children: [
-                ListTile(
-                  onTap: () {},
-                  leading: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: getFacultyColor(suggestions[index].faculty),
-                    ),
-                    height: 60,
-                    width: 110,
-                    child: Center(
-                      child: Text(
-                        suggestions[index].code,
-                        style: TextStyle(
-                          color: AppColors.textWhite,
-                          fontSize: 20,
-                          fontWeight: BOLD,
-                        ),
-                      ),
-                    ),
-                  ),
-                  title: Text(
-                    suggestions[index].sbj,
-                    style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15),
-                  ),
-                  subtitle: Row(
-                    children: [
-                      ImageIcon(
-                        getFacultyIcon(suggestions[index].faculty),
-                        color: AppColors.systemGrey,
-                        size: 13,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(suggestions[index].faculty.toUpperCase())
-                    ],
-                  ),
-                  trailing: Icon(
-                    AppIcons.forward,
-                    color: AppColors.systemGrey,
-                  ),
-                )
+                ImageIcon(
+                  getFacultyIcon(suggestions[index].faculty),
+                  color: AppColors.systemGrey,
+                  size: 13,
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(suggestions[index].faculty.toUpperCase())
               ],
+            ),
+            trailing: Icon(
+              AppIcons.forward,
+              color: AppColors.systemGrey,
             ),
           );
         },
       ),
     );
   }
+}
+
+List<Course> getQuery(List<Course> source, String q) {
+  List<Course> codeQuery = source.where((s) {
+    return s.code.toLowerCase().contains(q);
+  }).toList();
+
+  List<Course> sbjQuery = source.where((s) {
+    return s.sbj.toLowerCase().contains(q);
+  }).toList();
+
+  return codeQuery + sbjQuery;
 }

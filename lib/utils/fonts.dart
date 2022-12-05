@@ -12,6 +12,7 @@ const FontWeight BLACK = FontWeight.w800;
 const FontWeight HEAVY = FontWeight.w900;
 
 const double MAINHEADERSIZE = 40;
+const double SUBHEADERSIZE = 17;
 const double WEAKHEADERSIZE = 17;
 const double FACULTYTILEHEADERSIZE = 20;
 const double FACULTYTILEDESCRIPTIONSIZE = 10;
@@ -24,6 +25,19 @@ Text MainHeader(String txt, bool onWhiteBG) {
       fontSize: MAINHEADERSIZE,
       color: onWhiteBG ? AppColors.textBlue : AppColors.textWhite,
     ),
+  );
+}
+
+Text SubHeader(String txt, bool onWhiteBG) {
+  return Text(
+    txt,
+    style: TextStyle(
+      fontWeight: BOLD,
+      fontSize: SUBHEADERSIZE,
+      color: onWhiteBG ? AppColors.textBlue : AppColors.textWhite,
+      overflow: TextOverflow.ellipsis,
+    ),
+    maxLines: 1,
   );
 }
 

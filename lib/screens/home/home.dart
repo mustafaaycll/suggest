@@ -7,12 +7,14 @@ import 'package:suggest/classes/code.dart';
 import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/pupolarCourse.dart';
 import 'package:suggest/data.dart';
+import 'package:suggest/screens/home/codeListingPage.dart';
 import 'package:suggest/screens/home/courseSearch.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:suggest/utils/icons.dart';
 import 'package:suggest/utils/objects.dart';
 import 'package:suggest/utils/styles.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -106,7 +108,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("79 course offerings",
+                                    Text("${getCourseNumberByFaculty(courses, 'fass')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -146,7 +148,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("113 course offerings",
+                                    Text("${getCourseNumberByFaculty(courses, 'fens')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -186,7 +188,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("94 course offerings",
+                                    Text("${getCourseNumberByFaculty(courses, 'fman')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -224,7 +226,13 @@ class _HomeState extends State<Home> {
                             children: [
                               OutlinedButton(
                                   style: CodeButtonStyle(getFacultyColor(codes[i].faculty)),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    pushNewScreen(context,
+                                        screen: CourseListingByCode(
+                                          courses: filterCoursesByCode(courses, codes[i].code),
+                                          code: codes[i],
+                                        ));
+                                  },
                                   child: Text(
                                     codes[i].code,
                                     style: TextStyle(
@@ -238,7 +246,13 @@ class _HomeState extends State<Home> {
                               ),
                               OutlinedButton(
                                   style: CodeButtonStyle(getFacultyColor(codes[i + 21].faculty)),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    pushNewScreen(context,
+                                        screen: CourseListingByCode(
+                                          courses: filterCoursesByCode(courses, codes[i + 21].code),
+                                          code: codes[i + 21],
+                                        ));
+                                  },
                                   child: Text(
                                     codes[i + 21].code,
                                     style: TextStyle(
@@ -252,7 +266,13 @@ class _HomeState extends State<Home> {
                               ),
                               OutlinedButton(
                                   style: CodeButtonStyle(getFacultyColor(codes[i + 42].faculty)),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    pushNewScreen(context,
+                                        screen: CourseListingByCode(
+                                          courses: filterCoursesByCode(courses, codes[i + 42].code),
+                                          code: codes[i + 42],
+                                        ));
+                                  },
                                   child: Text(
                                     codes[i + 42].code,
                                     style: TextStyle(
@@ -376,4 +396,25 @@ class _HomeState extends State<Home> {
           ),
         ));
   }
+}
+
+int getCourseNumberByFaculty(List<Course> courses, String fac) {
+  int count = 0;
+  for (var i = 0; i < courses.length; i++) {
+    if (courses[i].faculty == fac) {
+      count++;
+    }
+  }
+  return count;
+}
+
+List<Course> filterCoursesByCode(List<Course> courses, String code) {
+  return courses.where((course) {
+    return getCodeFromFull(course.code) == code;
+  }).toList();
+}
+
+String getCodeFromFull(String fullCode) {
+  int index = fullCode.indexOf(RegExp(r'[0-9]'));
+  return fullCode.substring(0, index);
 }

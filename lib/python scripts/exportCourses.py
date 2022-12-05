@@ -6,7 +6,7 @@ dart = "List<Course> courses = <Course>[];\n"
 
 for i, line in enumerate(lines):
     print(i)
-    elems = line.strip().split('-')
+    elems = line.strip().split('_')
     code = elems[0].strip()
     sbj = elems[1].strip()
     faculty = elems[2].strip()
