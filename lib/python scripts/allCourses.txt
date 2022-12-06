@@ -13,6 +13,13 @@ ACC 501_Financial Reporting and Statement Analysis_fman
 ACC 521_Managerial Accounting_fman
 ACC 523_Applied Turkish Taxation Systems_fman
 ACC 801_Financial Reporting and Statement Analysis_fman
+ACC 802_Managerial Accounting_fman
+ACC 810_Financial Statement Analysis_fman
+ACC 901_Financial Reporting_fman
+ACC 902_Managerial Accounting_fman
+ACC 905_Advanced Managerial Accounting_fman
+ACC 906_Advanced Financial Accounting and Reporting_fman
+ACC 910_Financial Statement Analysis_fman
 AL 102_Academic Literacies_other
 ANTH 214_Anthropology as Cultural Critique_fass
 ANTH 251_Anthropology of the Global City_fass

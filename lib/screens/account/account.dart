@@ -42,66 +42,6 @@ class _AccountState extends State<Account> {
       ),
       body: Container(
         color: AppColors.bg,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 200,
-                  color: Colors.transparent,
-                  child: Image.asset('assets/logos/simplified25.png'),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.sabanci,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.fens,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.fman,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.fass,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.systemGrey,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 50,
-                  color: AppColors.textBlack,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }

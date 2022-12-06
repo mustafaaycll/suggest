@@ -23,7 +23,7 @@ List<Code> initializeCourseCodes() {
   Code BAN = Code(code: "BAN", longName: "Business Analytics", faculty: "fman");
   codes.add(BAN);
 
-  Code BIO = Code(code: "BIO", longName: "Mol.Bio.Genetic & Bioengin.", faculty: "fens");
+  Code BIO = Code(code: "BIO", longName: "Molecular Biology, Genetics & Bioengineering", faculty: "fens");
   codes.add(BIO);
 
   Code BP = Code(code: "BP", longName: "Brand Practise", faculty: "fman");
@@ -50,7 +50,7 @@ List<Code> initializeCourseCodes() {
   Code ECON = Code(code: "ECON", longName: "Economics", faculty: "fass");
   codes.add(ECON);
 
-  Code EECS = Code(code: "EECS", longName: "Elect.Eng. & Computer Sci.", faculty: "fens");
+  Code EECS = Code(code: "EECS", longName: "Electric Engineering & Computer Sci.", faculty: "fens");
   codes.add(EECS);
 
   Code EE = Code(code: "EE", longName: "Electronics Engineering", faculty: "fens");
@@ -131,7 +131,7 @@ List<Code> initializeCourseCodes() {
   Code MGMT = Code(code: "MGMT", longName: "Management", faculty: "fman");
   codes.add(MGMT);
 
-  Code MJC = Code(code: "MJC", longName: "Majors:Informative Cours", faculty: "fass");
+  Code MJC = Code(code: "MJC", longName: "Majors: Informative Course", faculty: "fass");
   codes.add(MJC);
 
   Code MKTG = Code(code: "MKTG", longName: "Marketing", faculty: "fman");
@@ -146,7 +146,7 @@ List<Code> initializeCourseCodes() {
   Code NT = Code(code: "NT", longName: "Nanotechnology", faculty: "fens");
   codes.add(NT);
 
-  Code OPIM = Code(code: "OPIM", longName: "Opera. & Info. Syst. Man.", faculty: "fman");
+  Code OPIM = Code(code: "OPIM", longName: "Operation & Information Systems Management", faculty: "fman");
   codes.add(OPIM);
 
   Code ORG = Code(code: "ORG", longName: "Organization", faculty: "fman");
@@ -164,7 +164,7 @@ List<Code> initializeCourseCodes() {
   Code PROJ = Code(code: "PROJ", longName: "Project Course", faculty: "other");
   codes.add(PROJ);
 
-  Code PSIR = Code(code: "PSIR", longName: "Political Sci. & Inter. Relati.", faculty: "fass");
+  Code PSIR = Code(code: "PSIR", longName: "Political Science & International Relations", faculty: "fass");
   codes.add(PSIR);
 
   Code PSY = Code(code: "PSY", longName: "Psychology", faculty: "fass");
@@ -179,16 +179,16 @@ List<Code> initializeCourseCodes() {
   Code SOC = Code(code: "SOC", longName: "Sociology", faculty: "fass");
   codes.add(SOC);
 
-  Code SPS = Code(code: "SPS", longName: "Social & Political Sci.", faculty: "fass");
+  Code SPS = Code(code: "SPS", longName: "Social & Political Science", faculty: "fass");
   codes.add(SPS);
 
-  Code TLL = Code(code: "TLL", longName: "Turkish Lang. & Literature", faculty: "other");
+  Code TLL = Code(code: "TLL", longName: "Turkish Language & Literature", faculty: "other");
   codes.add(TLL);
 
   Code TS = Code(code: "TS", longName: "Turkish Studies", faculty: "fass");
   codes.add(TS);
 
-  Code VA = Code(code: "VA", longName: "Vis. Arts & Vis. Comm. Des.", faculty: "fass");
+  Code VA = Code(code: "VA", longName: "Visual Arts & Visual Communication Design", faculty: "fass");
   codes.add(VA);
 
   Code VIS = Code(code: "VIS", longName: "Visual Studies", faculty: "fass");
@@ -232,6 +232,20 @@ List<Course> initializeCourses() {
   courses.add(ACC523);
   Course ACC801 = Course(code: "ACC801", sbj: "Financial Reporting and Statement Analysis", faculty: "fman");
   courses.add(ACC801);
+  Course ACC802 = Course(code: "ACC802", sbj: "Managerial Accounting", faculty: "fman");
+  courses.add(ACC802);
+  Course ACC810 = Course(code: "ACC810", sbj: "Financial Statement Analysis", faculty: "fman");
+  courses.add(ACC810);
+  Course ACC901 = Course(code: "ACC901", sbj: "Financial Reporting", faculty: "fman");
+  courses.add(ACC901);
+  Course ACC902 = Course(code: "ACC902", sbj: "Managerial Accounting", faculty: "fman");
+  courses.add(ACC902);
+  Course ACC905 = Course(code: "ACC905", sbj: "Advanced Managerial Accounting", faculty: "fman");
+  courses.add(ACC905);
+  Course ACC906 = Course(code: "ACC906", sbj: "Advanced Financial Accounting and Reporting", faculty: "fman");
+  courses.add(ACC906);
+  Course ACC910 = Course(code: "ACC910", sbj: "Financial Statement Analysis", faculty: "fman");
+  courses.add(ACC910);
   Course AL102 = Course(code: "AL102", sbj: "Academic Literacies", faculty: "other");
   courses.add(AL102);
   Course ANTH214 = Course(code: "ANTH214", sbj: "Anthropology as Cultural Critique", faculty: "fass");

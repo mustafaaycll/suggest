@@ -9,6 +9,7 @@ import 'package:suggest/classes/pupolarCourse.dart';
 import 'package:suggest/data.dart';
 import 'package:suggest/screens/home/codeListingPage.dart';
 import 'package:suggest/screens/home/courseSearch.dart';
+import 'package:suggest/screens/home/facListingPage.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:suggest/utils/icons.dart';
@@ -78,7 +79,15 @@ class _HomeState extends State<Home> {
                         Expanded(
                             child: OutlinedButton(
                                 style: OutlinedButtonStyle(AppColors.fass),
-                                onPressed: () {},
+                                onPressed: () {
+                                  pushNewScreen(context,
+                                      screen: CourseListingByFaculty(
+                                        faculty: "fass",
+                                        facultLongName: "Faculty of Art and Social Sciences",
+                                        codes: filterCodesByFaculty(codes, "fass"),
+                                        courses: courses,
+                                      ));
+                                },
                                 child: Column(
                                   children: [
                                     Row(
@@ -118,7 +127,15 @@ class _HomeState extends State<Home> {
                         Expanded(
                             child: OutlinedButton(
                                 style: OutlinedButtonStyle(AppColors.fens),
-                                onPressed: () {},
+                                onPressed: () {
+                                  pushNewScreen(context,
+                                      screen: CourseListingByFaculty(
+                                        faculty: "fens",
+                                        facultLongName: "Faculty of Engineering and Natural Sciences",
+                                        codes: filterCodesByFaculty(codes, "fens"),
+                                        courses: courses,
+                                      ));
+                                },
                                 child: Column(
                                   children: [
                                     Row(
@@ -158,7 +175,15 @@ class _HomeState extends State<Home> {
                         Expanded(
                             child: OutlinedButton(
                                 style: OutlinedButtonStyle(AppColors.fman),
-                                onPressed: () {},
+                                onPressed: () {
+                                  pushNewScreen(context,
+                                      screen: CourseListingByFaculty(
+                                        faculty: "fman",
+                                        facultLongName: "Faculty of Management",
+                                        codes: filterCodesByFaculty(codes, "fman"),
+                                        courses: courses,
+                                      ));
+                                },
                                 child: Column(
                                   children: [
                                     Row(
@@ -398,19 +423,29 @@ class _HomeState extends State<Home> {
   }
 }
 
+int getCourseNumberByCode(List<Course> courses, String code) {
+  return filterCoursesByCode(courses, code).length;
+}
+
 int getCourseNumberByFaculty(List<Course> courses, String fac) {
-  int count = 0;
-  for (var i = 0; i < courses.length; i++) {
-    if (courses[i].faculty == fac) {
-      count++;
-    }
-  }
-  return count;
+  return filterCoursesByFaculty(courses, fac).length;
 }
 
 List<Course> filterCoursesByCode(List<Course> courses, String code) {
   return courses.where((course) {
     return getCodeFromFull(course.code) == code;
+  }).toList();
+}
+
+List<Course> filterCoursesByFaculty(List<Course> courses, String fac) {
+  return courses.where((course) {
+    return course.faculty == fac;
+  }).toList();
+}
+
+List<Code> filterCodesByFaculty(List<Code> codes, String fac) {
+  return codes.where((code) {
+    return code.faculty == fac;
   }).toList();
 }
 

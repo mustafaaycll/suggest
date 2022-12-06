@@ -42,48 +42,6 @@ class _ChatState extends State<Chat> {
       ),
       body: Container(
         color: AppColors.bg,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'SUGGEST',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 40,
-                ),
-              ),
-              Text(
-                'SUGGEST',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 35,
-                ),
-              ),
-              Text(
-                'SUGGEST',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 30,
-                ),
-              ),
-              Text(
-                'SUGGEST',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                'SUGGEST',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 10,
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
