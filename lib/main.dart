@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:suggest/navbar.dart';
 import 'package:suggest/screens/authentication/login.dart';
-import 'package:suggest/screens/home/codeListingPage.dart';
+import 'package:suggest/screens/home/courseListingPage.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

@@ -7,9 +7,10 @@ import 'package:suggest/classes/code.dart';
 import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/pupolarCourse.dart';
 import 'package:suggest/data.dart';
-import 'package:suggest/screens/home/codeListingPage.dart';
+import 'package:suggest/screens/home/courseDetailPage.dart';
+import 'package:suggest/screens/home/courseListingPage.dart';
 import 'package:suggest/screens/home/courseSearch.dart';
-import 'package:suggest/screens/home/facListingPage.dart';
+import 'package:suggest/screens/home/codeListingPage.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:suggest/utils/icons.dart';
@@ -25,11 +26,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Code> codes = initializeCourseCodes();
-  List<Course> courses = initializeCourses();
-  List<PopularCourse> popularCourses = initializePopularCourses();
   @override
   Widget build(BuildContext context) {
+    List<Code> codes = initializeCourseCodes();
+    List<Course> courses = initializeCourses();
+    List<Course> popularCourses = initializePopularCourses(["VA325", "CS412", "FIN301"], courses);
     return Scaffold(
         backgroundColor: AppColors.bg,
         appBar: AppBar(
@@ -81,7 +82,7 @@ class _HomeState extends State<Home> {
                                 style: OutlinedButtonStyle(AppColors.fass),
                                 onPressed: () {
                                   pushNewScreen(context,
-                                      screen: CourseListingByFaculty(
+                                      screen: CodeListingByFaculty(
                                         faculty: "fass",
                                         facultLongName: "Faculty of Art and Social Sciences",
                                         codes: filterCodesByFaculty(codes, "fass"),
@@ -129,7 +130,7 @@ class _HomeState extends State<Home> {
                                 style: OutlinedButtonStyle(AppColors.fens),
                                 onPressed: () {
                                   pushNewScreen(context,
-                                      screen: CourseListingByFaculty(
+                                      screen: CodeListingByFaculty(
                                         faculty: "fens",
                                         facultLongName: "Faculty of Engineering and Natural Sciences",
                                         codes: filterCodesByFaculty(codes, "fens"),
@@ -177,7 +178,7 @@ class _HomeState extends State<Home> {
                                 style: OutlinedButtonStyle(AppColors.fman),
                                 onPressed: () {
                                   pushNewScreen(context,
-                                      screen: CourseListingByFaculty(
+                                      screen: CodeListingByFaculty(
                                         faculty: "fman",
                                         facultLongName: "Faculty of Management",
                                         codes: filterCodesByFaculty(codes, "fman"),
@@ -342,7 +343,9 @@ class _HomeState extends State<Home> {
                         ),
                         OutlinedButton(
                           style: MostReviewedButtonStyle(getFacultyColor(popularCourses[j].faculty)),
-                          onPressed: () {},
+                          onPressed: () {
+                            pushNewScreen(context, screen: CourseDetails(course: popularCourses[j]));
+                          },
                           child: Column(
                             children: [
                               Row(
@@ -396,7 +399,7 @@ class _HomeState extends State<Home> {
                                     width: 195,
                                     height: 54,
                                     child: Text(
-                                      popularCourses[j].suggestions[0].suggestion,
+                                      popularCourses[j].suggestions[0].text,
                                       style: TextStyle(
                                         color: AppColors.textWhite,
                                         overflow: TextOverflow.ellipsis,

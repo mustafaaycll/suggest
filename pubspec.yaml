@@ -38,6 +38,7 @@ dependencies:
   iconsax: ^0.0.8
   marquee: ^2.2.3
   text_scroll: ^0.1.1
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -72,9 +73,16 @@ flutter:
     - assets/icons/fens.png
     - assets/icons/fman.png
     - assets/icons/other.png
+    - assets/icons/action.png
+    - assets/icons/support.png
+    - assets/icons/team.png
     - assets/images/mustafayucel.jpg
     - assets/images/mugeyegin.jpg
     - assets/images/mgokbayrak.jpg
+    - assets/images/muratgermen.jpg
+    - assets/images/onurvarol.jpg
+    - assets/images/serifsimsir.jpg
+    - assets/images/placeholder.jpg
 
   fonts:
     - family: SF

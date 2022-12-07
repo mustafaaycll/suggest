@@ -2,12 +2,14 @@ class Suggestion {
   final String uname;
   final String rank;
   final String image;
-  final String suggestion;
+  final String text;
+  final String faculty;
 
   Suggestion({
     required this.uname,
     required this.rank,
     required this.image,
-    required this.suggestion,
+    required this.text,
+    required this.faculty,
   });
 }

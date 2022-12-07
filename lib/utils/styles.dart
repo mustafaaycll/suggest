@@ -13,6 +13,16 @@ ButtonStyle OutlinedButtonStyle(Color color) {
   );
 }
 
+ButtonStyle ActionButtonStyle(Color color) {
+  return OutlinedButton.styleFrom(
+    side: BorderSide(width: 0, color: Colors.transparent),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(9.0),
+    ),
+    backgroundColor: color,
+  );
+}
+
 ButtonStyle CodeButtonStyle(Color color) {
   return OutlinedButton.styleFrom(
     fixedSize: Size(60, 60),

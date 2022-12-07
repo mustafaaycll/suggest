@@ -3,7 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:suggest/classes/course.dart';
+import 'package:suggest/screens/home/courseDetailPage.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:suggest/utils/icons.dart';
@@ -71,7 +73,9 @@ class CourseSearchDelegate extends SearchDelegate {
         itemCount: query.isNotEmpty ? suggestions.length : 0,
         itemBuilder: (context, index) {
           return ListTile(
-            onTap: () {},
+            onTap: () {
+              pushNewScreen(context, screen: CourseDetails(course: suggestions[index]));
+            },
             leading: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(15)),
