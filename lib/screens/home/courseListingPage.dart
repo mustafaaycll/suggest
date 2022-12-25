@@ -78,19 +78,7 @@ class _CourseListingByCodeState extends State<CourseListingByCode> {
                       style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
                       maxLines: 2,
                     ),
-                    subtitle: Row(
-                      children: [
-                        ImageIcon(
-                          getFacultyIcon(widget.courses[index].faculty),
-                          color: AppColors.systemGrey,
-                          size: 13,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(widget.courses[index].faculty.toUpperCase())
-                      ],
-                    ),
+                    subtitle: Text(widget.courses[index].instructorName),
                     trailing: Icon(
                       AppIcons.forward,
                       color: AppColors.systemGrey,

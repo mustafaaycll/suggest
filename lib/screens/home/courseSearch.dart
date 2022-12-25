@@ -99,19 +99,7 @@ class CourseSearchDelegate extends SearchDelegate {
               style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
               maxLines: 2,
             ),
-            subtitle: Row(
-              children: [
-                ImageIcon(
-                  getFacultyIcon(suggestions[index].faculty),
-                  color: AppColors.systemGrey,
-                  size: 13,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(suggestions[index].faculty.toUpperCase())
-              ],
-            ),
+            subtitle: Text(suggestions[index].instructorName),
             trailing: Icon(
               AppIcons.forward,
               color: AppColors.systemGrey,

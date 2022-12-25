@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:suggest/main.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/icons.dart';
 
@@ -26,10 +27,12 @@ class _AccountState extends State<Account> {
           Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  USER.logout();
+                },
                 icon: Icon(
-                  AppIcons.settings,
-                  color: AppColors.sabanci,
+                  AppIcons.logout,
+                  color: AppColors.negative,
                   size: 25,
                 ),
               ),

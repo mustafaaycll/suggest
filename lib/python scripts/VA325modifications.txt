@@ -1,0 +1,227 @@
+VA325
+
+Suggestion instructor2203 = Suggestion(
+      uname: "murat.germen",
+      rank: "Instructor",
+      image: "muratgermen",
+      text:
+          "Programming skills are NOT required, focus is rather on the design of an interaction type to be proposed by the student. This course is NOT suitable for game interface design task as coding will NOT be taught.",
+      faculty: "fass");
+  Course VA325 = Course(
+      code: "VA325",
+      sbj: "Interface Design",
+      faculty: "fass",
+      instructorName: "Murat Germen",
+      description:
+          "The course is an introduction to the study and design of interfaces in general. Interfaces represent how people interact and are crucial to the success of any project as they link the projected audience to the material to be conveyed. The aim in this course is to enable students to apply the principles of Human Computer Interaction (HCI) to the study / design of useful, usable, and effective user interfaces.",
+      instructorSuggestion: instructor2203,
+      suggestions: [
+        Suggestion(
+            uname: "mustafayucel",
+            rank: "Student",
+            image: "mustafayucel",
+            text:
+                "As a CS student, it was an amazing experience to learn do's and don'ts in interface design. The best thing was to be able to select any framework/app we feel comfortable using to create the project.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "tonya.moon",
+            rank: "Student",
+            image: "placeholder",
+            text: "Miss drop we particularly. Standard car tonight reason my.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "behrem.şafak",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Wide front minute his. Job think even different who. Always give into can week season. Organization economy sell sort especially decade may season. Yard impact difference.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "candice.black",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Doloremque ab tenetur sapiente aliquam veniam explicabo. Iste natus eaque doloribus. Sapiente magnam quos ducimus doloribus. Accusamus ab et cum. Aut ducimus ex optio iste culpa beatae quaerat.",
+            faculty: "fman"),
+        Suggestion(
+            uname: "angela.estes",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Dicta laborum cumque eum numquam natus. Tenetur veritatis animi nesciunt doloremque ad quibusdam. At voluptate laborum iste. Cumque aspernatur iste aut iste perspiciatis.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "curtis.anderson",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Hic expedita fugit quaerat animi dolorem. Quos odio sint necessitatibus assumenda molestiae. Nemo vitae tenetur perferendis. Dolores ad nostrum voluptatem adipisci totam dolorum.",
+            faculty: "fman"),
+        Suggestion(
+            uname: "lindsey.brown",
+            rank: "Student",
+            image: "placeholder",
+            text: "Voluptate sequi magnam nulla. In rerum quasi molestias ullam. Ullam suscipit iusto inventore necessitatibus soluta.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "dominique.alexander",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Present include nothing future tend hit. Grow idea visit. Throw game popular learn. Former oil score customer sense quickly. This speech subject black.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "stephanie.peterson",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Significant create quickly well thus. These table product interview everybody whatever politics. Enjoy either age last. Significant manage ever consumer civil.",
+            faculty: "fman")
+      ],
+      difficulty: 3,
+      workload: 5,
+      su: 3,
+      ects: 6);
+  courses.add(VA325);
+
+
+  CS412
+
+  Suggestion instructor261 = Suggestion(
+      uname: "onur.varol",
+      rank: "Instructor",
+      image: "onurvarol",
+      text:
+          "Repellat repudiandae corporis ipsum voluptatem officia at accusantium. Rerum sunt maiores vitae aliquam et. Dicta voluptates laboriosam doloremque ut facere.",
+      faculty: "fens");
+  Course CS412 = Course(
+      code: "CS412",
+      sbj: "Machine Learning",
+      faculty: "fens",
+      instructorName: "Onur Varol",
+      description:
+          "This is an introductory machine learning course that will aim a solid understanding of the fundamental issues in machine learning (overfitting, bias/variance), together with several state-of-art approaches such as decision trees, linear regression, k-nearest neighbor, Bayesian classifiers, neural networks, logistic regression, and classifier combination.",
+      instructorSuggestion: instructor261,
+      suggestions: [
+        Suggestion(
+            uname: "mugeyegin",
+            rank: "Student",
+            image: "mugeyegin",
+            text:
+                "It is like advanced CS210. If you seek an internship in the data science field, I highly recommend you to take this course beforehand.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "gülçe.zengin",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Ab voluptatem eum vitae tempore aut quos. Sapiente debitis sed nam molestias quam. Voluptas quod facere. Necessitatibus blanditiis maxime modi quis deserunt fuga. Voluptates nihil aut consequatur.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "allison.wood",
+            rank: "Student",
+            image: "placeholder",
+            text: "Surface interest career. Senior travel resource nothing. Discussion court no miss.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "tonya.copeland",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Feel give kind about sure. Door writer ability movement draw hair nature. Oil exist plan low Democrat. Get particularly who top beautiful land nice. Me everything suddenly.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "emily.lopez",
+            rank: "Student",
+            image: "placeholder",
+            text: "Rerum repellendus similique molestiae eum amet. Quibusdam vero mollitia inventore ipsum. Omnis quod ab reprehenderit id ad minus.",
+            faculty: "fman"),
+        Suggestion(
+            uname: "özalpsan.akar",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Voluptatibus natus nobis quae. Sapiente consequatur magnam suscipit neque voluptatum. Placeat similique omnis soluta dolore facilis velit.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "candice.anderson",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Popular that right sometimes those final simply organization. Raise likely early possible. Size buy value recently itself. Movie situation those board often. Wind discuss can pull gun.",
+            faculty: "fman"),
+        Suggestion(
+            uname: "kevin.brown",
+            rank: "Student",
+            image: "placeholder",
+            text: "Dolorum architecto accusamus reiciendis dicta eaque quo eius. Eius recusandae in ipsa sit cum beatae.",
+            faculty: "fens")
+      ],
+      difficulty: 4,
+      workload: 2,
+      su: 3,
+      ects: 6);
+  courses.add(CS412);
+
+  FIN301
+
+  Suggestion instructor725 = Suggestion(
+      uname: "serif.simsir",
+      rank: "Instructor",
+      image: "serifsimsir",
+      text: "Fugiat facere quaerat. Possimus quis et molestiae cum fuga ducimus. Molestiae dolor consequatur doloribus.",
+      faculty: "fman");
+  Course FIN301 = Course(
+      code: "FIN301",
+      sbj: "Financial Management",
+      faculty: "fman",
+      instructorName: "Şerif Aziz Şimşir",
+      description:
+          "This course develops an understanding of the theoretical and practical issues relating to financial management. The main objectives of the course are : to introduce the students to the financial markets and the financial instruments traded in these markets, to expose the students to the quantitative toos and methods of modern finance, and to help students gain competence in using these tools to make sound financial decisions. Topics covered in the course include: the link between accounting and finance, an introduction to financial statement analysis, the time value of money, bond and stock valuation, investment decision criteria and capital budgeting, project analysis, risk-return relationship, cost of capital, and an overview of corporate financing and capital structure.",
+      instructorSuggestion: instructor725,
+      suggestions: [
+        Suggestion(
+            uname: "mgokbayrak",
+            rank: "Student",
+            image: "mgokbayrak",
+            text:
+                "The TradeAll application we learnt in the course provides a really good experience in real life trading. Other than that, the course gives you a nice background information that you can use later in more advanced FIN courses. Şerif Aziz Şimşir was a really good instructor and gave me a good insight of financial trades.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "kevin.skinner",
+            rank: "Student",
+            image: "placeholder",
+            text: "Aliquid perferendis molestias deserunt soluta praesentium incidunt doloremque. Eligendi dolor dolore fuga.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "üstün.yılmaz",
+            rank: "Student",
+            image: "placeholder",
+            text: "Itaque neque maiores eaque sed maxime architecto eius. Dolorem deserunt laborum.",
+            faculty: "fens"),
+        Suggestion(
+            uname: "hannah.cannon",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Stand among thousand. Style century care picture audience. Get speech second apply by around everybody. Audience resource expert partner center between glass.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "tanya.elliott",
+            rank: "Student",
+            image: "placeholder",
+            text: "Ipsa sed earum sequi ab ipsam. Deleniti atque autem eum. Mollitia alias fugit nemo. Officiis molestiae corporis enim.",
+            faculty: "fass"),
+        Suggestion(
+            uname: "nicholas.daugherty",
+            rank: "Student",
+            image: "placeholder",
+            text:
+                "Autem occaecati nulla pariatur esse neque. Minima enim nemo laudantium quas quod ad. Libero quasi laboriosam blanditiis deserunt cupiditate consectetur.",
+            faculty: "fens")
+      ],
+      difficulty: 3,
+      workload: 1,
+      su: 4,
+      ects: 6);
+  courses.add(FIN301);

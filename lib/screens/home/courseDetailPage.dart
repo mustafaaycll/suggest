@@ -24,14 +24,11 @@ class _CourseDetailState extends State<CourseDetails> {
     Color courseColor = getFacultyColor(course.faculty);
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
         elevation: 0,
         onPressed: () {},
         backgroundColor: AppColors.sabanci,
-        label: ImageIcon(
-          AppIcons.action,
-          size: 70,
-        ),
+        child: Icon(CupertinoIcons.add),
       ),
       backgroundColor: AppColors.bg,
       appBar: AppBar(

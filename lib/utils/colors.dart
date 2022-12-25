@@ -13,6 +13,7 @@ class AppColors {
   static final Color textWhite = Color(0xfff2f2f7);
   static final Color textBlue = Color(0xff003c6c);
   static final Color bg = Color(0xfff2f2f7);
+  static final Color negative = Color(0xffbd0d0d);
 }
 
 Color getFacultyColor(String faculty) {

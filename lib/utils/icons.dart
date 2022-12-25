@@ -9,6 +9,7 @@ class AppIcons {
   static const search = CupertinoIcons.search;
   static const addChat = CupertinoIcons.plus_bubble;
   static const settings = CupertinoIcons.gear;
+  static const logout = Icons.logout;
   static const syllabus = CupertinoIcons.doc;
   static const starFilled = CupertinoIcons.star_fill;
   static const starEmpty = CupertinoIcons.star;

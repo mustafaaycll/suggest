@@ -377,7 +377,7 @@ class _HomeState extends State<Home> {
                               ),
                               Row(
                                 children: [
-                                  profilePicture("assets/images/${popularCourses[j].suggestions[0].uname}.jpg", 15.0),
+                                  profilePicture("assets/images/${popularCourses[j].suggestions[0].image}.jpg", 15.0),
                                   SizedBox(
                                     width: 10,
                                   ),
