@@ -20,6 +20,8 @@ List<Code> CODES = initializeCourseCodes();
 List<Course> COURSES = initializeCourses();
 List<Course> POPULARCOURSES = initializePopularCourses(["VA325", "CS412", "FIN301"], COURSES);
 
+int a = 5;
+
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
