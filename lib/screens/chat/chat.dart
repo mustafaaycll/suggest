@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:suggest/classes/user.dart';
 import 'package:suggest/screens/chat/chatPage.dart';
@@ -43,6 +44,7 @@ class _ChatState extends State<Chat> {
         child: ListView.builder(
           itemCount: user.enrolledGroups.length,
           itemBuilder: (context, index) {
+            print(user.messages[user.enrolledGroups[index].code]![0].toString().runtimeType);
             return ListTile(
               onTap: () {
                 pushNewScreen(context,
@@ -73,7 +75,9 @@ class _ChatState extends State<Chat> {
                 style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
                 maxLines: 1,
               ),
-              subtitle: Text(user.enrolledGroups[index].instructorName),
+              subtitle: Text(
+                "${user.messages[user.enrolledGroups[index].code]!.first.author.firstName.toString()} ${user.messages[user.enrolledGroups[index].code]!.first.author.lastName.toString()}: ${trim(user.messages[user.enrolledGroups[index].code]![0].toString())}",
+              ),
               trailing: Icon(
                 AppIcons.forward,
                 color: AppColors.systemGrey,
@@ -84,4 +88,11 @@ class _ChatState extends State<Chat> {
       ),
     );
   }
+}
+
+String trim(String sacmaSey) {
+  String f = sacmaSey.substring(sacmaSey.indexOf("Status"));
+  String s = f.substring(f.indexOf(" ") + 1);
+  String t = s.substring(0, s.indexOf(","));
+  return t;
 }

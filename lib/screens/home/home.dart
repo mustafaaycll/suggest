@@ -31,6 +31,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    User user = widget.user;
     return Scaffold(
         backgroundColor: AppColors.bg,
         appBar: AppBar(
