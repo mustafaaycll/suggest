@@ -1,0 +1,191 @@
+List<Code> codes = <Code>[];
+
+Code ACC = Code(code: "ACC", longName: "Accounting", faculty: "fman");
+codes.add(ACC);
+
+Code AL = Code(code: "AL", longName: "Academic Literacies", faculty: "other");
+codes.add(AL);
+
+Code ANTH = Code(code: "ANTH", longName: "Anthropology", faculty: "fass");
+codes.add(ANTH);
+
+Code AR = Code(code: "AR", longName: "Action Research", faculty: "fman");
+codes.add(AR);
+
+Code BAN = Code(code: "BAN", longName: "Business Analytics", faculty: "fman");
+codes.add(BAN);
+
+Code BIO = Code(code: "BIO", longName: "Molecular Biology, Genetics & Bioengineering", faculty: "fens");
+codes.add(BIO);
+
+Code BP = Code(code: "BP", longName: "Brand Practise", faculty: "fman");
+codes.add(BP);
+
+Code CHEM = Code(code: "CHEM", longName: "Chemistry", faculty: "fens");
+codes.add(CHEM);
+
+Code CONF = Code(code: "CONF", longName: "Conflict Analysis Resolution", faculty: "fass");
+codes.add(CONF);
+
+Code CS = Code(code: "CS", longName: "Computer Science & Engineering", faculty: "fens");
+codes.add(CS);
+
+Code CULT = Code(code: "CULT", longName: "Cultural Studies", faculty: "fass");
+codes.add(CULT);
+
+Code DA = Code(code: "DA", longName: "Data Analytics", faculty: "fens");
+codes.add(DA);
+
+Code DS = Code(code: "DS", longName: "Data Science", faculty: "fens");
+codes.add(DS);
+
+Code ECON = Code(code: "ECON", longName: "Economics", faculty: "fass");
+codes.add(ECON);
+
+Code EECS = Code(code: "EECS", longName: "Electric Engineering & Computer Sci.", faculty: "fens");
+codes.add(EECS);
+
+Code EE = Code(code: "EE", longName: "Electronics Engineering", faculty: "fens");
+codes.add(EE);
+
+Code ENS = Code(code: "ENS", longName: "Engineering Sciences", faculty: "fens");
+codes.add(ENS);
+
+Code ES = Code(code: "ES", longName: "European Studies", faculty: "fass");
+codes.add(ES);
+
+Code ETM = Code(code: "ETM", longName: "Energy Tech. and Manag.", faculty: "fens");
+codes.add(ETM);
+
+Code FILM = Code(code: "FILM", longName: "Film Studies", faculty: "fass");
+codes.add(FILM);
+
+Code FIN = Code(code: "FIN", longName: "Finance", faculty: "fman");
+codes.add(FIN);
+
+Code GEN = Code(code: "GEN", longName: "Gender Studies", faculty: "fass");
+codes.add(GEN);
+
+Code GR = Code(code: "GR", longName: "Academic Practices & Development", faculty: "fens");
+codes.add(GR);
+
+Code HART = Code(code: "HART", longName: "History of Art", faculty: "fass");
+codes.add(HART);
+
+Code HIST = Code(code: "HIST", longName: "History", faculty: "fass");
+codes.add(HIST);
+
+Code HUM = Code(code: "HUM", longName: "Humanities", faculty: "fass");
+codes.add(HUM);
+
+Code IE = Code(code: "IE", longName: "Industrial Engineering", faculty: "fens");
+codes.add(IE);
+
+Code IF = Code(code: "IF", longName: "Interfaculty Course", faculty: "fens");
+codes.add(IF);
+
+Code IR = Code(code: "IR", longName: "International Relations", faculty: "fass");
+codes.add(IR);
+
+Code IS = Code(code: "IS", longName: "International Studies", faculty: "fass");
+codes.add(IS);
+
+Code IT = Code(code: "IT", longName: "Information Technology", faculty: "fens");
+codes.add(IT);
+
+Code LAW = Code(code: "LAW", longName: "Law", faculty: "fass");
+codes.add(LAW);
+
+Code LIT = Code(code: "LIT", longName: "Literature", faculty: "fass");
+codes.add(LIT);
+
+Code MART = Code(code: "MART", longName: "Action Research & Transformation Practices", faculty: "fman");
+codes.add(MART);
+
+Code MATH = Code(code: "MATH", longName: "Mathematics", faculty: "fens");
+codes.add(MATH);
+
+Code MAT = Code(code: "MAT", longName: "Materials Science & Nano Engineering", faculty: "fens");
+codes.add(MAT);
+
+Code ME = Code(code: "ME", longName: "Mechatronics", faculty: "fens");
+codes.add(ME);
+
+Code MFE = Code(code: "MFE", longName: "Manufacturing", faculty: "fens");
+codes.add(MFE);
+
+Code MFG = Code(code: "MFG", longName: "Manufacturing", faculty: "fens");
+codes.add(MFG);
+
+Code MFIN = Code(code: "MFIN", longName: "Finance (Master)", faculty: "fman");
+codes.add(MFIN);
+
+Code MGMT = Code(code: "MGMT", longName: "Management", faculty: "fman");
+codes.add(MGMT);
+
+Code MJC = Code(code: "MJC", longName: "Majors: Informative Course", faculty: "fass");
+codes.add(MJC);
+
+Code MKTG = Code(code: "MKTG", longName: "Marketing", faculty: "fman");
+codes.add(MKTG);
+
+Code MRES = Code(code: "MRES", longName: "Managerial Research", faculty: "fman");
+codes.add(MRES);
+
+Code NS = Code(code: "NS", longName: "Natural Sciences", faculty: "fens");
+codes.add(NS);
+
+Code NT = Code(code: "NT", longName: "Nanotechnology", faculty: "fens");
+codes.add(NT);
+
+Code OPIM = Code(code: "OPIM", longName: "Operation & Information Systems Management", faculty: "fman");
+codes.add(OPIM);
+
+Code ORG = Code(code: "ORG", longName: "Organization", faculty: "fman");
+codes.add(ORG);
+
+Code PHIL = Code(code: "PHIL", longName: "Philosophy", faculty: "fass");
+codes.add(PHIL);
+
+Code PHYS = Code(code: "PHYS", longName: "Physics", faculty: "fens");
+codes.add(PHYS);
+
+Code POLS = Code(code: "POLS", longName: "Political Science", faculty: "fass");
+codes.add(POLS);
+
+Code PROJ = Code(code: "PROJ", longName: "Project Course", faculty: "other");
+codes.add(PROJ);
+
+Code PSIR = Code(code: "PSIR", longName: "Political Science & International Relations", faculty: "fass");
+codes.add(PSIR);
+
+Code PSY = Code(code: "PSY", longName: "Psychology", faculty: "fass");
+codes.add(PSY);
+
+Code PUBL = Code(code: "PUBL", longName: "Public Policy", faculty: "fass");
+codes.add(PUBL);
+
+Code SEC = Code(code: "SEC", longName: "Security", faculty: "fens");
+codes.add(SEC);
+
+Code SOC = Code(code: "SOC", longName: "Sociology", faculty: "fass");
+codes.add(SOC);
+
+Code SPS = Code(code: "SPS", longName: "Social & Political Science", faculty: "fass");
+codes.add(SPS);
+
+Code TLL = Code(code: "TLL", longName: "Turkish Language & Literature", faculty: "other");
+codes.add(TLL);
+
+Code TS = Code(code: "TS", longName: "Turkish Studies", faculty: "fass");
+codes.add(TS);
+
+Code VA = Code(code: "VA", longName: "Visual Arts & Visual Communication Design", faculty: "fass");
+codes.add(VA);
+
+Code VIS = Code(code: "VIS", longName: "Visual Studies", faculty: "fass");
+codes.add(VIS);
+
+Code XM = Code(code: "XM", longName: "Project Exchange", faculty: "fens");
+codes.add(XM);
+
