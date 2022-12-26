@@ -16,6 +16,12 @@ class AppIcons {
   static const back = CupertinoIcons.chevron_back;
   static const forward = CupertinoIcons.chevron_forward;
   static const delete = CupertinoIcons.xmark;
+  static const attachment = CupertinoIcons.paperclip;
+  static const delivered = CupertinoIcons.checkmark_alt_circle;
+  static const seen = CupertinoIcons.checkmark_alt_circle_fill;
+  static const error = CupertinoIcons.exclamationmark_circle;
+  static const send = CupertinoIcons.paperplane;
+  static const info = CupertinoIcons.info;
   static const AssetImage support = AssetImage('assets/icons/support.png');
   static const AssetImage team = AssetImage('assets/icons/team.png');
   static const AssetImage fass = AssetImage('assets/icons/fass.png');

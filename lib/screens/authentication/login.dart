@@ -65,7 +65,9 @@ class _LoginState extends State<Login> {
         ),
       );
     } else {
-      return NavBar();
+      return NavBar(
+        user: user,
+      );
     }
   }
 }

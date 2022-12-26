@@ -38,25 +38,18 @@ class CourseSearchDelegate extends SearchDelegate {
 
   @override
   List<Widget>? buildActions(BuildContext context) => [
-        Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  if (query.isEmpty) {
-                    close(context, null);
-                  } else {
-                    query = '';
-                  }
-                },
-                icon: Icon(
-                  AppIcons.delete,
-                  color: AppColors.sabanci,
-                )),
-            SizedBox(
-              width: 30,
-            )
-          ],
-        ),
+        IconButton(
+            onPressed: () {
+              if (query.isEmpty) {
+                close(context, null);
+              } else {
+                query = '';
+              }
+            },
+            icon: Icon(
+              AppIcons.delete,
+              color: AppColors.sabanci,
+            )),
       ];
 
   @override

@@ -6,7 +6,9 @@ import 'package:flutter/rendering.dart';
 import 'package:suggest/classes/code.dart';
 import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/pupolarCourse.dart';
+import 'package:suggest/classes/user.dart';
 import 'package:suggest/data.dart';
+import 'package:suggest/main.dart';
 import 'package:suggest/screens/home/courseDetailPage.dart';
 import 'package:suggest/screens/home/courseListingPage.dart';
 import 'package:suggest/screens/home/courseSearch.dart';
@@ -19,7 +21,8 @@ import 'package:suggest/utils/styles.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final User user;
+  const Home({super.key, required this.user});
 
   @override
   State<Home> createState() => _HomeState();
@@ -28,9 +31,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    List<Code> codes = initializeCourseCodes();
-    List<Course> courses = initializeCourses();
-    List<Course> popularCourses = initializePopularCourses(["VA325", "CS412", "FIN301"], courses);
     return Scaffold(
         backgroundColor: AppColors.bg,
         appBar: AppBar(
@@ -42,22 +42,15 @@ class _HomeState extends State<Home> {
             child: Image.asset('assets/logos/normal5.png'),
           ),
           actions: [
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    showSearch(context: context, delegate: CourseSearchDelegate(courses: courses));
-                  },
-                  icon: Icon(
-                    AppIcons.search,
-                    color: AppColors.sabanci,
-                    size: 25,
-                  ),
-                ),
-                SizedBox(
-                  width: 30,
-                )
-              ],
+            IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CourseSearchDelegate(courses: COURSES));
+              },
+              icon: Icon(
+                AppIcons.search,
+                color: AppColors.sabanci,
+                size: 25,
+              ),
             ),
           ],
         ),
@@ -85,8 +78,8 @@ class _HomeState extends State<Home> {
                                       screen: CodeListingByFaculty(
                                         faculty: "fass",
                                         facultLongName: "Faculty of Art and Social Sciences",
-                                        codes: filterCodesByFaculty(codes, "fass"),
-                                        courses: courses,
+                                        codes: filterCodesByFaculty(CODES, "fass"),
+                                        courses: COURSES,
                                       ));
                                 },
                                 child: Column(
@@ -118,7 +111,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("${getCourseNumberByFaculty(courses, 'fass')} course offerings",
+                                    Text("${getCourseNumberByFaculty(COURSES, 'fass')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -133,8 +126,8 @@ class _HomeState extends State<Home> {
                                       screen: CodeListingByFaculty(
                                         faculty: "fens",
                                         facultLongName: "Faculty of Engineering and Natural Sciences",
-                                        codes: filterCodesByFaculty(codes, "fens"),
-                                        courses: courses,
+                                        codes: filterCodesByFaculty(CODES, "fens"),
+                                        courses: COURSES,
                                       ));
                                 },
                                 child: Column(
@@ -166,7 +159,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("${getCourseNumberByFaculty(courses, 'fens')} course offerings",
+                                    Text("${getCourseNumberByFaculty(COURSES, 'fens')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -181,8 +174,8 @@ class _HomeState extends State<Home> {
                                       screen: CodeListingByFaculty(
                                         faculty: "fman",
                                         facultLongName: "Faculty of Management",
-                                        codes: filterCodesByFaculty(codes, "fman"),
-                                        courses: courses,
+                                        codes: filterCodesByFaculty(CODES, "fman"),
+                                        courses: COURSES,
                                       ));
                                 },
                                 child: Column(
@@ -214,7 +207,7 @@ class _HomeState extends State<Home> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    Text("${getCourseNumberByFaculty(courses, 'fman')} course offerings",
+                                    Text("${getCourseNumberByFaculty(COURSES, 'fman')} course offerings",
                                         textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: AppColors.textWhite))
                                   ],
                                 ))),
@@ -241,7 +234,7 @@ class _HomeState extends State<Home> {
                 height: 186,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: (codes.length / 3).round(),
+                    itemCount: (CODES.length / 3).round(),
                     itemBuilder: (context, i) {
                       return Row(
                         children: [
@@ -251,16 +244,16 @@ class _HomeState extends State<Home> {
                           Column(
                             children: [
                               OutlinedButton(
-                                  style: CodeButtonStyle(getFacultyColor(codes[i].faculty)),
+                                  style: CodeButtonStyle(getFacultyColor(CODES[i].faculty)),
                                   onPressed: () {
                                     pushNewScreen(context,
                                         screen: CourseListingByCode(
-                                          courses: filterCoursesByCode(courses, codes[i].code),
-                                          code: codes[i],
+                                          courses: filterCoursesByCode(COURSES, CODES[i].code),
+                                          code: CODES[i],
                                         ));
                                   },
                                   child: Text(
-                                    codes[i].code,
+                                    CODES[i].code,
                                     style: TextStyle(
                                       fontWeight: BOLD,
                                       fontSize: 20,
@@ -271,16 +264,16 @@ class _HomeState extends State<Home> {
                                 height: 3,
                               ),
                               OutlinedButton(
-                                  style: CodeButtonStyle(getFacultyColor(codes[i + 21].faculty)),
+                                  style: CodeButtonStyle(getFacultyColor(CODES[i + 21].faculty)),
                                   onPressed: () {
                                     pushNewScreen(context,
                                         screen: CourseListingByCode(
-                                          courses: filterCoursesByCode(courses, codes[i + 21].code),
-                                          code: codes[i + 21],
+                                          courses: filterCoursesByCode(COURSES, CODES[i + 21].code),
+                                          code: CODES[i + 21],
                                         ));
                                   },
                                   child: Text(
-                                    codes[i + 21].code,
+                                    CODES[i + 21].code,
                                     style: TextStyle(
                                       fontWeight: BOLD,
                                       fontSize: 20,
@@ -291,16 +284,16 @@ class _HomeState extends State<Home> {
                                 height: 3,
                               ),
                               OutlinedButton(
-                                  style: CodeButtonStyle(getFacultyColor(codes[i + 42].faculty)),
+                                  style: CodeButtonStyle(getFacultyColor(CODES[i + 42].faculty)),
                                   onPressed: () {
                                     pushNewScreen(context,
                                         screen: CourseListingByCode(
-                                          courses: filterCoursesByCode(courses, codes[i + 42].code),
-                                          code: codes[i + 42],
+                                          courses: filterCoursesByCode(COURSES, CODES[i + 42].code),
+                                          code: CODES[i + 42],
                                         ));
                                   },
                                   child: Text(
-                                    codes[i + 42].code,
+                                    CODES[i + 42].code,
                                     style: TextStyle(
                                       fontWeight: BOLD,
                                       fontSize: 20,
@@ -310,7 +303,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                           SizedBox(
-                            width: i == (codes.length / 3).round() - 1 ? 15 : 3,
+                            width: i == (CODES.length / 3).round() - 1 ? 15 : 3,
                           )
                         ],
                       );
@@ -334,7 +327,7 @@ class _HomeState extends State<Home> {
                 height: 186,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: popularCourses.length,
+                  itemCount: POPULARCOURSES.length,
                   itemBuilder: (context, j) {
                     return Row(
                       children: [
@@ -342,9 +335,9 @@ class _HomeState extends State<Home> {
                           width: j == 0 ? 15 : 0,
                         ),
                         OutlinedButton(
-                          style: MostReviewedButtonStyle(getFacultyColor(popularCourses[j].faculty)),
+                          style: MostReviewedButtonStyle(getFacultyColor(POPULARCOURSES[j].faculty)),
                           onPressed: () {
-                            pushNewScreen(context, screen: CourseDetails(course: popularCourses[j]));
+                            pushNewScreen(context, screen: CourseDetails(course: POPULARCOURSES[j]));
                           },
                           child: Column(
                             children: [
@@ -355,13 +348,13 @@ class _HomeState extends State<Home> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        popularCourses[j].code,
+                                        POPULARCOURSES[j].code,
                                         style: TextStyle(color: AppColors.textWhite, fontWeight: BOLD, fontSize: 35),
                                       ),
                                       SizedBox(
                                         width: 160,
                                         child: Text(
-                                          popularCourses[j].sbj,
+                                          POPULARCOURSES[j].sbj,
                                           style: TextStyle(
                                               color: AppColors.textWhite, fontWeight: REGULAR, fontSize: 17, overflow: TextOverflow.ellipsis),
                                           maxLines: 1,
@@ -369,7 +362,7 @@ class _HomeState extends State<Home> {
                                       )
                                     ],
                                   ),
-                                  rateBox(popularCourses[j].difficulty, popularCourses[j].workload)
+                                  rateBox(POPULARCOURSES[j].difficulty, POPULARCOURSES[j].workload)
                                 ],
                               ),
                               SizedBox(
@@ -377,12 +370,12 @@ class _HomeState extends State<Home> {
                               ),
                               Row(
                                 children: [
-                                  profilePicture("assets/images/${popularCourses[j].suggestions[0].image}.jpg", 15.0),
+                                  profilePicture("assets/images/${POPULARCOURSES[j].suggestions[0].image}.jpg", 15.0),
                                   SizedBox(
                                     width: 10,
                                   ),
                                   Text(
-                                    "${popularCourses[j].suggestions[0].uname} - ${popularCourses[j].suggestions[0].rank}",
+                                    "${POPULARCOURSES[j].suggestions[0].uname} - ${POPULARCOURSES[j].suggestions[0].rank}",
                                     style: TextStyle(
                                       color: AppColors.textWhite,
                                       fontWeight: BOLD,
@@ -399,7 +392,7 @@ class _HomeState extends State<Home> {
                                     width: 195,
                                     height: 54,
                                     child: Text(
-                                      popularCourses[j].suggestions[0].text,
+                                      POPULARCOURSES[j].suggestions[0].text,
                                       style: TextStyle(
                                         color: AppColors.textWhite,
                                         overflow: TextOverflow.ellipsis,
@@ -413,7 +406,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         SizedBox(
-                          width: j + 1 == popularCourses.length ? 15 : 3,
+                          width: j + 1 == POPULARCOURSES.length ? 15 : 3,
                         )
                       ],
                     );

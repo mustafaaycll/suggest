@@ -27,3 +27,9 @@ class Course {
     required this.ects,
   });
 }
+
+List<Course> filteredCourses(List<Course> courses, List<String> codes) {
+  return List<Course>.from(courses.where((element) {
+    return codes.contains(element.code.toUpperCase());
+  })).toList();
+}

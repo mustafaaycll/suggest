@@ -42,20 +42,13 @@ class _CourseDetailState extends State<CourseDetails> {
         elevation: 0,
         centerTitle: false,
         actions: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  AppIcons.syllabus,
-                  color: AppColors.bg,
-                  size: 25,
-                ),
-              ),
-              SizedBox(
-                width: 30,
-              )
-            ],
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              AppIcons.syllabus,
+              color: AppColors.bg,
+              size: 25,
+            ),
           ),
         ],
       ),
