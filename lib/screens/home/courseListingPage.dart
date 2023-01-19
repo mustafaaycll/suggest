@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
 import 'package:suggest/classes/code.dart';
 import 'package:suggest/classes/course.dart';
 import 'package:suggest/screens/home/courseDetailPage.dart';
@@ -25,6 +26,7 @@ class CourseListingByCode extends StatefulWidget {
 class _CourseListingByCodeState extends State<CourseListingByCode> {
   @override
   Widget build(BuildContext context) {
+    List<Course> courses = widget.courses;
     return Scaffold(
         backgroundColor: AppColors.bg,
         appBar: AppBar(
@@ -46,25 +48,25 @@ class _CourseListingByCodeState extends State<CourseListingByCode> {
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: widget.courses.length,
+                itemCount: courses.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     onTap: () {
                       pushNewScreen(context,
                           screen: CourseDetails(
-                            course: widget.courses[index],
+                            course: courses[index],
                           ));
                     },
                     leading: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                        color: getFacultyColor(widget.courses[index].faculty),
+                        color: getFacultyColor(courses[index].faculty),
                       ),
                       height: 60,
                       width: 110,
                       child: Center(
                         child: Text(
-                          widget.courses[index].code,
+                          courses[index].code,
                           style: TextStyle(
                             color: AppColors.textWhite,
                             fontSize: 20,
@@ -74,11 +76,11 @@ class _CourseListingByCodeState extends State<CourseListingByCode> {
                       ),
                     ),
                     title: Text(
-                      widget.courses[index].sbj,
+                      courses[index].sbj,
                       style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
                       maxLines: 2,
                     ),
-                    subtitle: Text(widget.courses[index].instructorName),
+                    subtitle: Text(courses[index].instructorName),
                     trailing: Icon(
                       AppIcons.forward,
                       color: AppColors.systemGrey,

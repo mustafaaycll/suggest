@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/user.dart';
 import 'package:suggest/screens/account/account.dart';
 import 'package:suggest/screens/chat/chat.dart';
@@ -12,7 +13,8 @@ import 'package:suggest/utils/icons.dart';
 
 class NavBar extends StatefulWidget {
   final User user;
-  const NavBar({super.key, required this.user});
+  final List<Course> courses;
+  const NavBar({super.key, required this.user, required this.courses});
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -20,7 +22,11 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   List<Widget> _buildScreens() {
-    return [Home(user: widget.user), Chat(user: widget.user), Account(user: widget.user)];
+    return [
+      Home(user: widget.user, courses: widget.courses),
+      Chat(user: widget.user, courses: widget.courses),
+      Account(user: widget.user, courses: widget.courses)
+    ];
   }
 
   List<PersistentBottomNavBarItem> _navBarItems() {

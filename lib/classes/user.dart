@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:suggest/classes/course.dart';
+import 'package:suggest/data.dart';
 import 'package:suggest/main.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
@@ -32,7 +33,7 @@ class StreamedUser {
     uname: "mustafayucel",
     faculty: "fens",
     field: "Computer Science and Engineering",
-    enrolledGroups: filteredCourses(COURSES, ["VA325", "CS303", "MGMT203"]),
+    enrolledGroups: filteredCourses(initializeCourses(), ["VA325", "CS303", "MGMT203"]),
     messages: {},
   );
   final _controller = StreamController<User?>();

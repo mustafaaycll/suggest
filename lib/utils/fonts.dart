@@ -16,6 +16,7 @@ const FontWeight HEAVY = FontWeight.w900;
 
 const double MAINHEADERSIZE = 30;
 const double SUBHEADERSIZE = 20;
+const double SUBBODYSIZE = 14;
 const double SECONDARYSUBHEADERSIZE = 15;
 const double BODYTEXTSIZE = 12;
 const double BUTTONTEXTSIZE = 12;
@@ -62,6 +63,18 @@ Text SubHeader(String txt, bool onWhiteBG) {
       overflow: TextOverflow.ellipsis,
     ),
     maxLines: 1,
+  );
+}
+
+Text SubBody(String txt, bool onWhiteBG) {
+  return Text(
+    txt,
+    style: TextStyle(
+      fontWeight: REGULAR,
+      fontSize: SUBBODYSIZE,
+      color: onWhiteBG ? AppColors.textBlue : AppColors.textWhite,
+      overflow: TextOverflow.clip,
+    ),
   );
 }
 
@@ -155,6 +168,17 @@ Text SuggestionText(String txt, bool onWhiteBG) {
       fontWeight: REGULAR,
       fontSize: BODYTEXTSIZE,
       color: onWhiteBG ? AppColors.textBlue : AppColors.textWhite,
+    ),
+  );
+}
+
+Text SuggestionTextSizeAdjusted(String txt, bool onWhiteBG, double? size) {
+  return Text(
+    txt,
+    style: TextStyle(
+      fontWeight: REGULAR,
+      fontSize: size,
+      color: onWhiteBG ? AppColors.textBlack : AppColors.textWhite,
     ),
   );
 }
