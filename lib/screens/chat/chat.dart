@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/user.dart';
 import 'package:suggest/screens/chat/chatPage.dart';
 import 'package:suggest/utils/colors.dart';
@@ -12,7 +13,8 @@ import '../../utils/fonts.dart';
 
 class Chat extends StatefulWidget {
   final User user;
-  const Chat({super.key, required this.user});
+  final List<Course> courses;
+  const Chat({super.key, required this.user, required this.courses});
 
   @override
   State<Chat> createState() => _ChatState();
@@ -23,6 +25,7 @@ class _ChatState extends State<Chat> {
   Widget build(BuildContext context) {
     User user = widget.user;
     return Scaffold(
+      backgroundColor: AppColors.bg,
       appBar: AppBar(
         backgroundColor: AppColors.bg,
         title: MainHeader('Chat', true),
@@ -39,48 +42,57 @@ class _ChatState extends State<Chat> {
           ),
         ],
       ),
-      body: Container(
-        color: AppColors.bg,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 7),
         child: ListView.builder(
+          padding: EdgeInsets.all(0),
           itemCount: user.enrolledGroups.length,
           itemBuilder: (context, index) {
-            print(user.messages[user.enrolledGroups[index].code]![0].toString().runtimeType);
-            return ListTile(
-              onTap: () {
-                pushNewScreen(context,
-                    screen: ChatPage(
-                      course: user.enrolledGroups[index],
-                    ));
-              },
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: getFacultyColor(user.enrolledGroups[index].faculty),
-                ),
-                height: 60,
-                width: 110,
-                child: Center(
-                  child: Text(
-                    user.enrolledGroups[index].code,
-                    style: TextStyle(
-                      color: AppColors.textWhite,
-                      fontSize: 20,
-                      fontWeight: BOLD,
-                    ),
+            return Slidable(
+              key: ValueKey(0),
+              endActionPane: ActionPane(
+                extentRatio: 0.3,
+                motion: DrawerMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    onPressed: (context) {},
+                    backgroundColor: AppColors.negative,
+                    foregroundColor: AppColors.bg,
+                    label: 'Leave',
+                  ),
+                ],
+              ),
+              child: ListTile(
+                onTap: () {
+                  pushNewScreen(context,
+                      screen: ChatPage(
+                        course: user.enrolledGroups[index],
+                      ));
+                },
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: getFacultyColor(user.enrolledGroups[index].faculty),
+                  child: ImageIcon(
+                    getFacultyIcon(user.enrolledGroups[index].faculty),
+                    color: AppColors.bg,
                   ),
                 ),
-              ),
-              title: Text(
-                user.enrolledGroups[index].sbj,
-                style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
-                maxLines: 1,
-              ),
-              subtitle: Text(
-                "${user.messages[user.enrolledGroups[index].code]!.first.author.firstName.toString()} ${user.messages[user.enrolledGroups[index].code]!.first.author.lastName.toString()}: ${trim(user.messages[user.enrolledGroups[index].code]![0].toString())}",
-              ),
-              trailing: Icon(
-                AppIcons.forward,
-                color: AppColors.systemGrey,
+                title: Text(
+                  "${user.enrolledGroups[index].code} - ${user.enrolledGroups[index].sbj}",
+                  style: TextStyle(color: AppColors.textBlack, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
+                  maxLines: 1,
+                ),
+                trailing: Text(
+                  "17:20",
+                  style: TextStyle(color: AppColors.systemGrey, fontWeight: REGULAR, fontSize: 12, overflow: TextOverflow.ellipsis),
+                  maxLines: 1,
+                ),
+                subtitle: Text(
+                  "John Doe: Ooowww ☺️",
+                  style: TextStyle(color: AppColors.systemGrey, fontWeight: REGULAR, fontSize: 15, overflow: TextOverflow.ellipsis),
+                  maxLines: 1,
+                ),
               ),
             );
           },

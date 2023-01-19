@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 
 class AppIcons {
   static const home = CupertinoIcons.house_fill;
-  static const chat = CupertinoIcons.bubble_left_fill;
+  static const chat = CupertinoIcons.bubble_left_bubble_right_fill;
   static const account = CupertinoIcons.person_fill;
   static const search = CupertinoIcons.search;
   static const addChat = CupertinoIcons.plus_bubble;
@@ -22,6 +22,12 @@ class AppIcons {
   static const error = CupertinoIcons.exclamationmark_circle;
   static const send = CupertinoIcons.paperplane;
   static const info = CupertinoIcons.info;
+  static const fav = CupertinoIcons.heart;
+  static const suggestion = CupertinoIcons.quote_bubble;
+  static const bell = CupertinoIcons.bell;
+  static const lang = CupertinoIcons.globe;
+  static const help = CupertinoIcons.question;
+  static const share = CupertinoIcons.square_arrow_up;
   static const AssetImage support = AssetImage('assets/icons/support.png');
   static const AssetImage team = AssetImage('assets/icons/team.png');
   static const AssetImage fass = AssetImage('assets/icons/fass.png');

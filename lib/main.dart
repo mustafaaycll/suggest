@@ -1,33 +1,37 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:suggest/classes/code.dart';
 import 'package:suggest/classes/course.dart';
 import 'package:suggest/classes/user.dart';
 import 'package:suggest/data.dart';
-import 'package:suggest/navbar.dart';
 import 'package:suggest/screens/authentication/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
+import 'package:desktop_window/desktop_window.dart';
+import 'dart:io' show Platform;
 
 int? ALREADYLOGGEDIN;
 StreamedUser USER = StreamedUser();
+StreamedCourses COURSESSTREAM = StreamedCourses();
 List<Code> CODES = initializeCourseCodes();
-List<Course> COURSES = initializeCourses();
-List<Course> POPULARCOURSES = initializePopularCourses(["VA325", "CS412", "FIN301"], COURSES);
+// List<Course> COURSES = initializeCourses();
+List<Course> POPULARCOURSES = initializePopularCourses(["VA325", "CS412", "FIN301"], initializeCourses());
 
 int a = 5;
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isMacOS) {
+    await DesktopWindow.setWindowSize(Size(400, 800));
+    await DesktopWindow.setMinWindowSize(Size(400, 800));
+    await DesktopWindow.setMaxWindowSize(Size(400, 800));
+  }
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   SharedPreferences prefs = await SharedPreferences.getInstance();
   ALREADYLOGGEDIN = await prefs.getInt("loggedInUserExists");
   USER.initialize();
+  COURSESSTREAM.initialize();
   runApp(Suggest());
 }
 
@@ -45,13 +49,18 @@ class _SuggestState extends State<Suggest> {
     return StreamProvider<User?>.value(
       value: USER.stream,
       initialData: null,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'SF'),
-        routes: {
-          '/Login': (context) => Login(),
-        },
-        initialRoute: '/Login',
+      child: StreamProvider<List<Course>>.value(
+        updateShouldNotify: (_, __) => true,
+        value: COURSESSTREAM.stream,
+        initialData: initializeCourses(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(fontFamily: 'SF'),
+          routes: {
+            '/Login': (context) => Login(),
+          },
+          initialRoute: '/Login',
+        ),
       ),
     );
   }

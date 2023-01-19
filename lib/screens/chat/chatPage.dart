@@ -21,6 +21,7 @@ import 'package:suggest/screens/home/courseDetailPage.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:suggest/utils/icons.dart';
+import 'package:suggest/utils/styles.dart';
 import 'package:uuid/uuid.dart';
 
 class ChatPage extends StatefulWidget {
@@ -93,87 +94,94 @@ class _ChatPageState extends State<ChatPage> {
       context: context,
       builder: (BuildContext context) => SafeArea(
         child: SizedBox(
-          height: 250,
+          height: 190,
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Card(
-                  color: AppColors.bg,
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pop(context);
-                      _handleImageSelection();
-                    },
-                    leading: Icon(
-                      CupertinoIcons.photo_camera,
-                      color: AppColors.sabanci,
-                    ),
-                    title: Center(
-                      child: Text(
-                        "Photo",
-                        style: TextStyle(
-                          color: AppColors.sabanci,
-                          fontSize: 20,
+                OutlinedButton(
+                  style: ActionButtonStyle(AppColors.sabanci, true),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    _handleImageSelection();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.centerLeft,
+                          children: [
+                            Center(child: ButtonText("Photo", false)),
+                            Icon(
+                              CupertinoIcons.photo_camera,
+                              color: AppColors.bg,
+                              size: 17,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    trailing: Icon(
-                      CupertinoIcons.doc_text,
-                      color: AppColors.bg,
-                    ),
+                    ],
                   ),
                 ),
-                Card(
-                  color: AppColors.bg,
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pop(context);
-                      _handleFileSelection();
-                    },
-                    leading: Icon(
-                      CupertinoIcons.doc_text,
-                      color: AppColors.sabanci,
-                    ),
-                    title: Center(
-                      child: Text(
-                        "File",
-                        style: TextStyle(
-                          color: AppColors.sabanci,
-                          fontSize: 20,
+                Platform.isMacOS
+                    ? SizedBox(
+                        height: 10,
+                      )
+                    : Container(),
+                OutlinedButton(
+                  style: ActionButtonStyle(AppColors.sabanci, true),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    _handleFileSelection();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.centerLeft,
+                          children: [
+                            Center(child: ButtonText("File", false)),
+                            Icon(
+                              CupertinoIcons.doc_text,
+                              color: AppColors.bg,
+                              size: 17,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    trailing: Icon(
-                      CupertinoIcons.doc_text,
-                      color: AppColors.bg,
-                    ),
+                    ],
                   ),
                 ),
-                Card(
-                  color: AppColors.bg,
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    leading: Icon(
-                      CupertinoIcons.xmark,
-                      color: AppColors.negative,
-                    ),
-                    title: Center(
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          color: AppColors.negative,
-                          fontSize: 20,
+                Platform.isMacOS
+                    ? SizedBox(
+                        height: 10,
+                      )
+                    : Container(),
+                OutlinedButton(
+                  style: ActionButtonStyle(AppColors.negative, true),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.centerLeft,
+                          children: [
+                            Center(child: ButtonText("Cancel", false)),
+                            Icon(
+                              CupertinoIcons.xmark,
+                              color: AppColors.bg,
+                              size: 17,
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    trailing: Icon(
-                      CupertinoIcons.doc_text,
-                      color: AppColors.bg,
-                    ),
+                    ],
                   ),
                 ),
               ],

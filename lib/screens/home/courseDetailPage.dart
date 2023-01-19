@@ -1,13 +1,24 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
 import 'package:suggest/classes/course.dart';
+import 'package:suggest/classes/suggestion.dart';
+import 'package:suggest/main.dart';
+import 'package:suggest/screens/home/addSuggestion.dart';
 import 'package:suggest/utils/colors.dart';
 import 'package:suggest/utils/fonts.dart';
 import 'package:readmore/readmore.dart';
 import 'package:suggest/utils/icons.dart';
 import 'package:suggest/utils/objects.dart';
 import 'package:suggest/utils/styles.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 class CourseDetails extends StatefulWidget {
   Course course;
@@ -20,14 +31,60 @@ class CourseDetails extends StatefulWidget {
 class _CourseDetailState extends State<CourseDetails> {
   @override
   Widget build(BuildContext context) {
-    Course course = widget.course;
+    Course course = Provider.of<List<Course>>(context).where((element) => element.code.toUpperCase() == widget.course.code.toUpperCase()).toList()[0];
     Color courseColor = getFacultyColor(course.faculty);
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         elevation: 0,
-        onPressed: () {},
-        backgroundColor: AppColors.sabanci,
+        onPressed: () {
+          if (evaluateAvailability(course) != "available") {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    backgroundColor: AppColors.bg,
+                    icon: Icon(
+                      AppIcons.error,
+                      color: AppColors.negative,
+                    ),
+                    title: Text(
+                      evaluateAvailability(course) == "exists" ? "You already suggested something" : "You did not take this course",
+                      style: TextStyle(color: AppColors.textBlack, fontSize: 15),
+                    ),
+                    actions: [
+                      OutlinedButton(
+                        style: ActionButtonStyle(AppColors.negative, true),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Stack(
+                                alignment: Alignment.centerLeft,
+                                children: [
+                                  Center(child: ButtonText("Cancel", false)),
+                                  Icon(
+                                    AppIcons.delete,
+                                    color: AppColors.bg,
+                                    size: 17,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                });
+          } else {
+            pushNewScreen(context, screen: AddSuggestionPage(course: course));
+          }
+        },
+        backgroundColor: evaluateAvailability(course) == "available" ? AppColors.sabanci : AppColors.systemGrey,
         child: Icon(CupertinoIcons.add),
       ),
       backgroundColor: AppColors.bg,
@@ -43,10 +100,96 @@ class _CourseDetailState extends State<CourseDetails> {
         centerTitle: false,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              if (course.code.toUpperCase() == "VA325") {
+                final client = http.Client();
+                final request = await client.get(Uri.parse(
+                    "https://sucourse.sabanciuniv.edu/plus/syllabusdownload.php?context=302545&component=mod_folder&filearea=content&itemid=0&filepath=/&filename=VA%20325%20syllabus.doc&mimetype=application/msword"));
+                final bytes = request.bodyBytes;
+                final documentsDir = (await getApplicationDocumentsDirectory()).path;
+                final localPath = '$documentsDir/VA 325 Syllabus.doc';
+                if (!File(localPath).existsSync()) {
+                  final file = File(localPath);
+                  await file.writeAsBytes(bytes);
+                }
+                await OpenFilex.open(localPath);
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      backgroundColor: AppColors.bg,
+                      icon: Icon(
+                        AppIcons.error,
+                        color: AppColors.negative,
+                      ),
+                      title: Text(
+                        "Syllabus appears to be missing",
+                        style: TextStyle(color: AppColors.textBlack, fontSize: 15),
+                      ),
+                      actions: [
+                        OutlinedButton(
+                          style: ActionButtonStyle(AppColors.sabanci, true),
+                          onPressed: () async {
+                            await launchUrl(Uri.parse("mailto:${course.instructorSuggestion.uname}@sabanciuniv.edu"));
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Stack(
+                                  alignment: Alignment.centerLeft,
+                                  children: [
+                                    Center(child: ButtonText("Contact Instructor", false)),
+                                    Icon(
+                                      CupertinoIcons.mail,
+                                      color: AppColors.bg,
+                                      size: 17,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Platform.isMacOS
+                            ? SizedBox(
+                                height: 10,
+                              )
+                            : Container(),
+                        OutlinedButton(
+                          style: ActionButtonStyle(AppColors.negative, true),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Stack(
+                                  alignment: Alignment.centerLeft,
+                                  children: [
+                                    Center(child: ButtonText("Cancel", false)),
+                                    Icon(
+                                      AppIcons.delete,
+                                      color: AppColors.bg,
+                                      size: 17,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              }
+            },
             icon: Icon(
               AppIcons.syllabus,
-              color: AppColors.bg,
+              color: course.code.toUpperCase() == "VA325" ? AppColors.bg : AppColors.systemGrey,
               size: 25,
             ),
           ),
@@ -128,13 +271,17 @@ class _CourseDetailState extends State<CourseDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 7,
+                  ),
+                  suggestionBox(course, course.instructorSuggestion, context),
                   Row(
                     children: [
                       Expanded(
                         child: SizedBox(
-                          height: 30,
+                          height: 35,
                           child: OutlinedButton(
-                            style: ActionButtonStyle(courseColor),
+                            style: ActionButtonStyle(courseColor, false),
                             onPressed: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -158,9 +305,9 @@ class _CourseDetailState extends State<CourseDetails> {
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 30,
+                          height: 35,
                           child: OutlinedButton(
-                            style: ActionButtonStyle(courseColor),
+                            style: ActionButtonStyle(courseColor, false),
                             onPressed: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -182,15 +329,7 @@ class _CourseDetailState extends State<CourseDetails> {
                     ],
                   ),
                   SizedBox(
-                    height: 7,
-                  ),
-                  WeakHeader("Instructor suggests"),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  suggestionBox(course.instructorSuggestion),
-                  SizedBox(
-                    height: 7,
+                    height: 17,
                   ),
                   WeakHeader("Students suggest"),
                   SizedBox(
@@ -201,7 +340,7 @@ class _CourseDetailState extends State<CourseDetails> {
                     shrinkWrap: true,
                     itemCount: course.suggestions.length,
                     itemBuilder: (context, index) {
-                      return suggestionBox(course.suggestions[index]);
+                      return suggestionBox(course, course.suggestions[index], context);
                     },
                   ),
                   SizedBox(
@@ -215,4 +354,35 @@ class _CourseDetailState extends State<CourseDetails> {
       ),
     );
   }
+}
+
+String evaluateAvailability(Course c) {
+  List<String> takenCourses = [
+    "CS201",
+    "CS204",
+    "CS210",
+    "CS300",
+    "CS301",
+    "CS303",
+    "CS306",
+    "CS307",
+    "CS308",
+    "CS310",
+    "CS408",
+    "CS412",
+    "VA325",
+    "MGMT203"
+  ];
+
+  for (var i = 0; i < c.suggestions.length; i++) {
+    if (c.suggestions[i].uname == "mustafayucel") {
+      return "exists";
+    }
+  }
+
+  if (!takenCourses.contains(c.code.toUpperCase())) {
+    return "notTaken";
+  }
+
+  return "available";
 }
